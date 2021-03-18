@@ -1,0 +1,83 @@
+@import 'data';
+
+.calendar {
+  background-color: map-get($color, 'background');
+
+  color: map-get($color, 'main');
+  text-align: center;
+
+  th,
+  td {
+    padding: 5px 12px;
+    border: $border;
+  }
+
+  th {
+    cursor: default;
+  }
+
+  td {
+    cursor: pointer;
+  }
+
+  .day-of-previous-month,
+  .day-of-next-month {
+    color: map-get($color, 'other-days');
+  }
+
+}
+
+.calendar__title {
+  padding: 8px 12px;
+
+  font-size: inherit;
+  font-weight: normal;
+  line-height: inherit;
+
+  cursor: default;
+
+  border: {
+    left: $border;
+    right: $border;
+    top: $border;
+  }
+
+}
+
+.calendar__navigation {
+  display: flex;
+
+  padding: 4px;
+
+  border: {
+    left: $border;
+    right: $border;
+    bottom: $border;
+  }
+}
+
+.calendar__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+
+  font-size: 25px;
+  color: map-get($color, 'normal');
+
+  border: 1px solid map-get($color, 'normal');
+
+  &:hover {
+    color: map-get($color, 'hover');
+    border-color: map-get($color, 'hover');
+  }
+
+  &:focus {
+    color: map-get($color, 'active');
+    border-color: map-get($color, 'active');
+  }
+}
+
+.calendar__button:not(:last-of-type) {
+  margin-right: 2px;
+}

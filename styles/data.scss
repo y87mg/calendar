@@ -1,0 +1,10 @@
+$color: (
+  'normal': #008000,
+  'active': #ff0000,
+  'hover': #0000ff,
+  'other-days': #d3d3d3,
+  'background': #ffffff,
+  'main': #000000
+);
+
+$border: 1px solid map-get($color, 'main');

@@ -27,20 +27,22 @@ const getLastWeekDay = function (year, month) {
   return WEEK[new Date(year, month + 1, 0).getDay()];
 };
 
-// Дополним наш массив пустыми строками справа и слева
-// Пусть для этого у нас будет функция normalize, первым параметром принимающая массив, вторым - сколько строк добавить слева, а третьим - сколько строк справа. Четвёртый и пятый параметры - год и месяц
+// Дополним наш массив строками справа и слева
+// Пусть для этого у нас будет функция normalize, первым параметром принимающая массив, вторым - сколько строк добавить слева, а третьим - сколько строк справа.
+// Четвёртый и пятый параметры - это год и месяц соответственно. Если им не присвоены аргументы, то слева и справа будут добавлены пустые строки.
 // Слева мы должны добавить firstWeekDay элементов, а справа - 6 минус lastWeekDay элементов
 
 const normalize = function (arr, left, right, year, month) {
+  const isDateSpecified = year !== undefined && month !== undefined;
   for (let i = 0; i < left; i++) {
     let day = {};
-    day.date = `${new Date(year, month, -i).getDate()}`;
+    day.date = isDateSpecified ? `${new Date(year, month, -i).getDate()}` : '';
     day.className = 'day-of-previous-month';
     arr.unshift(day);
   }
   for (let i = 0; i < right; i++) {
     let day = {};
-    day.date = `${new Date(year, month + 1, 1 + i).getDate()}`;
+    day.date = isDateSpecified ? `${new Date(year, month + 1, 1 + i).getDate()}` : '';
     day.className = 'day-of-next-month';
     arr.push(day);
   }

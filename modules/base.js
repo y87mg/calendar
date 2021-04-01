@@ -1,6 +1,6 @@
 import { data } from './data';
 import { draw } from './draw';
-import { onPrevClick, onNextClick } from './navigation';
+import { getPrevMonth, getNextMonth } from './navigation';
 
 const date = new Date();
 const year = date.getFullYear();
@@ -15,8 +15,8 @@ const createCell = function (tag, text) {
   return cell;
 };
 
-const createCalendar = function (tagName) {
-  const container = tagName;
+const createCalendar = function (selector) {
+  const container = document.querySelector(selector);
   const classNamesParent = container.className.split(' ');
   const classNameParent = classNamesParent[1] ? classNamesParent[1] : classNamesParent[0];
   const calendar = document.createElement('div');
@@ -47,10 +47,10 @@ const createCalendar = function (tagName) {
   next.className = `${mainClassName}__button ${mainClassName}__button--next button`;
   next.textContent = '→';
   prev.addEventListener('click', function () {
-    onPrevClick(tbody, title, year, month);
+    draw(tbody, year, getPrevMonth(title, year, month));
   });
   next.addEventListener('click', function () {
-    onNextClick(tbody, title, year, month);
+    draw(tbody, year, getNextMonth(title, year, month));
   });
   calendar.append(title);
   calendar.append(table);

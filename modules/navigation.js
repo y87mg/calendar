@@ -1,5 +1,4 @@
 import { data } from './data';
-import { draw } from './draw';
 
 let count = 0;
 
@@ -19,12 +18,4 @@ const getNextMonth = function (title, year, month) {
   return getMonth(title, year, month);
 };
 
-const onPrevClick = function (body, title, year, month) {
-  draw(body, year, getPrevMonth(title, year, month));
-};
-
-const onNextClick = function (body, title, year, month) {
-  draw(body, year, getNextMonth(title, year, month));
-};
-
-export { onPrevClick, onNextClick };
+export { getPrevMonth, getNextMonth };

@@ -1,13 +1,17 @@
+# Файлы и папки операционной системы
 .DS_Store
+Thumbs.db
+
+# Файлы редактора
 .idea
-*.ai
-*.log
-*.pdf
-*.psd
 *.sublime*
+.vscode
+
+# Вспомогательные файлы
+*.log*
+node_modules/
+
+#Директории проекта
 build/
 dist/
-node_modules/
-npm-debug.*
 source/css/*.css
-Thumbs.db
